@@ -995,7 +995,7 @@ export default function Home() {
 
                 <h3 className="text-md font-bold text-slate-900 tracking-tight">Upload a PDF to convert</h3>
                 <p className="text-xs text-slate-500 mt-2 max-w-sm leading-relaxed">
-                  Drag and drop a PDF here, or click below. We'll extract its tables into a clean, downloadable Excel file.
+                  Drag and drop a PDF here, or click below. We&apos;ll extract its tables into a clean, downloadable Excel file.
                 </p>
 
                 <div className="mt-8">
