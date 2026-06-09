@@ -635,7 +635,7 @@ export default function Home() {
             {uploadProgress && (
               <div className="mt-2.5 flex items-center justify-center gap-2 text-[10px] font-semibold text-blue-600 bg-blue-50 border border-blue-100 rounded-lg p-1.5 animate-pulse">
                 <RefreshCw className="h-3 w-3 animate-spin" />
-                <span>Uploading pdf...</span>
+                <span>Uploading Document...</span>
               </div>
             )}
           </div>

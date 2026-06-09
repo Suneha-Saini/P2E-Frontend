@@ -51,3 +51,6 @@ next-env.d.ts
 /src-tauri/bin/*.exe
 /src-tauri/bin/*.app
 /src-tauri/bin/converter-backend-*
+
+.vercel
+.env*
