@@ -65,7 +65,6 @@ jobs:
   deploy-to-vercel:
     needs: build-and-lint
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
