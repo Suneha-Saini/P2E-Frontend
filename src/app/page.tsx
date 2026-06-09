@@ -627,7 +627,7 @@ export default function Home() {
             {uploadProgress && (
               <div className="mt-2.5 flex items-center justify-center gap-2 text-[10px] font-semibold text-blue-600 bg-blue-50 border border-blue-100 rounded-lg p-1.5 animate-pulse">
                 <RefreshCw className="h-3 w-3 animate-spin" />
-                <span>Uploading statements...</span>
+                <span>Uploading pdf...</span>
               </div>
             )}
           </div>
@@ -995,7 +995,7 @@ export default function Home() {
 
                 <h3 className="text-md font-bold text-slate-900 tracking-tight">Upload a PDF to convert</h3>
                 <p className="text-xs text-slate-500 mt-2 max-w-sm leading-relaxed">
-                  Drag and drop a PDF here, or click below. We'll extract its tables into a clean, downloadable Excel file.
+                  Drag and drop a PDF here, or click below. We&apos;ll extract its tables into a clean, downloadable Excel file.
                 </p>
 
                 <div className="mt-8">
