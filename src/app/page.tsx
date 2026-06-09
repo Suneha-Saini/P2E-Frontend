@@ -28,7 +28,7 @@ import { AllCommunityModule } from "ag-grid-community";
 
 
 // Dynamic API url to bypass loopback sandboxing
-const DEFAULT_API_URL = "http://127.0.0.1:8000/api";
+const DEFAULT_API_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000/api";
 
 interface Transaction {
   date: string;
@@ -104,15 +104,23 @@ export default function Home() {
     const activeToken = "local-session";
     setToken(activeToken);
 
-    let hostname = window.location.hostname;
-    if (hostname === "localhost") {
-      hostname = "127.0.0.1";
+    // If an environment variable is provided (e.g. Render backend), use it.
+    // Otherwise, dynamically fallback to the localhost resolver.
+    const envApiUrl = process.env.NEXT_PUBLIC_API_URL;
+    if (envApiUrl) {
+      setApiBaseUrl(envApiUrl);
+      fetchDocuments(activeToken, envApiUrl);
+      fetchProviderSettings(activeToken, envApiUrl);
+    } else {
+      let hostname = window.location.hostname;
+      if (hostname === "localhost") {
+        hostname = "127.0.0.1";
+      }
+      const resolvedUrl = `${window.location.protocol}//${hostname}:8000/api`;
+      setApiBaseUrl(resolvedUrl);
+      fetchDocuments(activeToken, resolvedUrl);
+      fetchProviderSettings(activeToken, resolvedUrl);
     }
-    const resolvedUrl = `${window.location.protocol}//${hostname}:8000/api`;
-    setApiBaseUrl(resolvedUrl || DEFAULT_API_URL);
-
-    fetchDocuments(activeToken, resolvedUrl);
-    fetchProviderSettings(activeToken, resolvedUrl);
   }, []);
 
   // Poll processing items with support for Auto-Download
